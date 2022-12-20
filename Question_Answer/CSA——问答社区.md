@@ -52,7 +52,7 @@ cmd:项目的入口，存放main函数
 
 go.mod：依赖管理
 
-![image-20221220152434971](C:\Users\李\AppData\Roaming\Typora\typora-user-images\image-20221220152434971.png)
+![image-20221220152434971](https://github.com/TOMORROWLHY/CSA-work/blob/main/Question_Answer/photos/1.png)
 
 ## Mysql——数据库
 
