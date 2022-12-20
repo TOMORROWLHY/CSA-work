@@ -68,16 +68,16 @@ MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，
 
 用csaqa表示该项目数据库
 
-![image-20221220153712995](C:\Users\李\AppData\Roaming\Typora\typora-user-images\image-20221220153712995.png)
+![image-20221220153712995](https://github.com/TOMORROWLHY/CSA-work/blob/main/Question_Answer/photos/2.png)
 
 user表涉及用户ID、用户名、密码
 
-![image-20221220153926830](C:\Users\李\AppData\Roaming\Typora\typora-user-images\image-20221220153926830.png)
+![image-20221220153926830](https://github.com/TOMORROWLHY/CSA-work/blob/main/Question_Answer/photos/3.png)
 
 question表涉及用户ID、问题ID、问题内容
 
-![image-20221220154038612](C:\Users\李\AppData\Roaming\Typora\typora-user-images\image-20221220154038612.png)
+![image-20221220154038612](https://github.com/TOMORROWLHY/CSA-work/blob/main/Question_Answer/photos/4.png)
 
 answer表，涉及用户ID、问题ID、回答ID、回答内容
 
-![image-20221220154121882](C:\Users\李\AppData\Roaming\Typora\typora-user-images\image-20221220154121882.png)
+![image-20221220154121882](https://github.com/TOMORROWLHY/CSA-work/blob/main/Question_Answer/photos/5.png)
