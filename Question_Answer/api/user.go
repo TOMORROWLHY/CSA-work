@@ -19,6 +19,12 @@ func Register(c *gin.Context) {
 		tools.RespParamErr(c)
 		return
 	}
+	//判断用户名是否重复
+	flag := service.CheckExist(username)
+	if flag {
+		tools.NormalErr(c, 500, "用户名已存在")
+		return
+	}
 	err := service.CreatUser(model.User{
 		Username: username,
 		Password: password,
@@ -50,7 +56,7 @@ func Login(c *gin.Context) {
 		return
 	}
 	if u.Password != password {
-		tools.NormalErr(c, 200, "密码错误！")
+		tools.NormalErr(c, 500, "密码错误！")
 		return
 	}
 	//通过用户名查找出uid
@@ -65,14 +71,14 @@ func Login(c *gin.Context) {
 		}
 		return
 	}
-	uidstring := strconv.Itoa(u.ID)
-	c.SetCookie("user", uidstring, 3600, "/", "localhost", true, true)
-	_, err = c.Cookie("user")
-	if err != nil {
-		log.Printf("set cookie err: %#v", err)
-		return
-	}
 	tools.RespOK(c, "登录成功")
+	uidstring := strconv.Itoa(u.ID)
+	c.SetCookie("user", uidstring, 3600, "/", "", false, true)
+	//_, err = c.Cookie("user")
+	//if err != nil {
+	//	log.Printf("set cookie err: %#v", err)
+	//	return
+	//}
 }
 
 // 修改密码

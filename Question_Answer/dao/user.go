@@ -2,7 +2,6 @@ package dao
 
 import (
 	"GO_study/CSA_golong/Question_Answer/model"
-	"fmt"
 	"log"
 )
 
@@ -16,13 +15,12 @@ func InsertUser(u model.User) (err error) {
 
 // 通过用户名查找用户
 func SearchUserByUsername(name string) (u model.User, err error) {
-	tx := DB.Select("name").Where("name=?", name).Find(&u)
+	tx := DB.Where("username=?", name).Find(&u)
 	err = tx.Error
 	if err != nil {
 		log.Printf("the error: %#v", err)
 		panic(err)
 	}
-	fmt.Println(u.Username)
 	return u, err
 }
 

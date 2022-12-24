@@ -45,7 +45,7 @@ func ChangeQuestion(qid int, changedquestion string) (err error) {
 // 通过问题查找问题的qid
 func SelectQidByQuestion(question string) (qid int, err error) {
 	var q model.Question
-	tx := DB.Select("qid").Where("question = ?", question).Find(&q)
+	tx := DB.Where("question = ?", question).Find(&q)
 	err = tx.Error
 	if err != nil {
 		log.Printf("the err: %#v", err)
@@ -58,8 +58,8 @@ func SelectQidByQuestion(question string) (qid int, err error) {
 // 通过uid确定qid是否属于这个用户，即是否是这个用户提出的问题
 func SelectQidByUid(uid int) (qids []int, err error) {
 	//暂时设定为10个容量上限
-	questions := make([]model.Question, 10)
-	tx := DB.Select("qid").Where("uid=?", uid).Find(&questions)
+	qs := make([]model.Question, 10)
+	tx := DB.Where("uid=?", uid).Find(&qs)
 	err = tx.Error
 	if err != nil {
 		log.Printf("the error: %#v", err)
@@ -67,7 +67,7 @@ func SelectQidByUid(uid int) (qids []int, err error) {
 	}
 	//将查找出的qid存入qids中
 	for i := 0; i < 10; i++ {
-		qids = append(qids, questions[i].Qid)
+		qids = append(qids, qs[i].Qid)
 	}
 	return qids, err
 }

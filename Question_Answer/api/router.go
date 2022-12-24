@@ -26,7 +26,7 @@ func InitRouter() {
 	a.PUT("/change", ChangeAnswer)
 	a.DELETE("/delete", DeleteAnswer)
 	a.GET("find", FindAllAnswers)
-	
-	r.Run("8080")
+
+	r.Run(":8080")
 
 }
